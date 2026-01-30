@@ -6,16 +6,31 @@ using UnityEngine.SceneManagement;
 
 namespace GameLoop
 {
+    [DefaultExecutionOrder(-100)]
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
 
+        public event System.Action OnLevelCompleted
+        {
+            add
+            {
+                m_onLevelCompleted -= value;
+                m_onLevelCompleted += value;
+            }
+            remove
+            {
+                m_onLevelCompleted -= value;
+            }
+        }
+
         [SerializeField]
         private List<MaskUsage> m_maskUsages;
 
-        private Dictionary<string, MaskUsage> m_maskUsagePerLevel = null;
-        private StartingPoint m_startingPoint = null;
+        private event System.Action m_onLevelCompleted;
 
+        private StartingPoint m_startingPoint = null;
+        private Dictionary<string, MaskUsage> m_maskUsagePerLevel = null;
         private Dictionary<EPlayerType, int> m_remainingMasks = new Dictionary<EPlayerType, int>();
 
         private void Awake()
@@ -73,7 +88,7 @@ namespace GameLoop
 
         public void PlayerReachedGoal()
         {
-            Debug.Log("Player has reached the goal!");
+            m_onLevelCompleted?.Invoke();
         }
 
         public bool CanUseMask(EPlayerType _requestedType)
