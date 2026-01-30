@@ -43,11 +43,11 @@ namespace Player
             InputSystem.actions.FindAction("Move").canceled += OnPlayerMoved;
             InputSystem.actions.FindAction("Jump").performed += OnPlayerJump;
 
-            InputSystem.actions.FindAction("UseHeavyMask").performed += (ctx) => ChangeMask(EPlayerType.HEAVY);
-            InputSystem.actions.FindAction("UseNormalMask").performed += (ctx) => ChangeMask(EPlayerType.NORMAL);
-            InputSystem.actions.FindAction("UseWideMask").performed += (ctx) => ChangeMask(EPlayerType.WIDE);
-            InputSystem.actions.FindAction("UseLiquidMask").performed += (ctx) => ChangeMask(EPlayerType.LIQUID);
-            InputSystem.actions.FindAction("UseNarrowMask").performed += (ctx) => ChangeMask(EPlayerType.NARROW);
+            InputSystem.actions.FindAction("UseHeavyMask").performed += ChangeToHeavyMask;
+            InputSystem.actions.FindAction("UseNormalMask").performed += ChangeToNormalMask;
+            InputSystem.actions.FindAction("UseLiquidMask").performed += ChangeToLiquidMask;
+            InputSystem.actions.FindAction("UseWideMask").performed += ChangeToWideMask;
+            InputSystem.actions.FindAction("UseNarrowMask").performed += ChangeToNarrowMask;
         }
 
         private void UnsubscribeFromInput()
@@ -56,20 +56,46 @@ namespace Player
             InputSystem.actions.FindAction("Move").canceled -= OnPlayerMoved;
             InputSystem.actions.FindAction("Jump").performed -= OnPlayerJump;
 
-            InputSystem.actions.FindAction("UseHeavyMask").performed -= (ctx) => ChangeMask(EPlayerType.HEAVY);
-            InputSystem.actions.FindAction("UseNormalMask").performed -= (ctx) => ChangeMask(EPlayerType.NORMAL);
-            InputSystem.actions.FindAction("UseWideMask").performed -= (ctx) => ChangeMask(EPlayerType.WIDE);
-            InputSystem.actions.FindAction("UseLiquidMask").performed -= (ctx) => ChangeMask(EPlayerType.LIQUID);
-            InputSystem.actions.FindAction("UseNarrowMask").performed -= (ctx) => ChangeMask(EPlayerType.NARROW);
+            InputSystem.actions.FindAction("UseHeavyMask").performed -= ChangeToHeavyMask;
+            InputSystem.actions.FindAction("UseNormalMask").performed -= ChangeToNormalMask;
+            InputSystem.actions.FindAction("UseLiquidMask").performed -= ChangeToLiquidMask;
+            InputSystem.actions.FindAction("UseWideMask").performed -= ChangeToWideMask;
+            InputSystem.actions.FindAction("UseNarrowMask").performed -= ChangeToNarrowMask;
         }
 
-        private void ChangeMask(EPlayerType _type)
+        private void ChangeMask(EPlayerType _target)
         {
-            if (GameManager.Instance.CanUseMask(_type))
+            if (GameManager.Instance.CanUseMask(_target))
             {
-                m_playerState.CurrentType = _type;
+                m_playerState.CurrentType = _target;
             }
         }
+
+        private void ChangeToHeavyMask(InputAction.CallbackContext _context)
+        {
+            ChangeMask(EPlayerType.HEAVY);
+        }
+
+        private void ChangeToWideMask(InputAction.CallbackContext _context)
+        {
+            ChangeMask(EPlayerType.WIDE);
+        }
+
+        private void ChangeToLiquidMask(InputAction.CallbackContext _context)
+        {
+            ChangeMask(EPlayerType.LIQUID);
+        }
+
+        private void ChangeToNormalMask(InputAction.CallbackContext _context)
+        {
+            ChangeMask(EPlayerType.NORMAL);
+        }
+
+        private void ChangeToNarrowMask(InputAction.CallbackContext _context)
+        {
+            ChangeMask(EPlayerType.NARROW);
+        }
+
 
         private void OnPlayerJump(InputAction.CallbackContext _context)
         {

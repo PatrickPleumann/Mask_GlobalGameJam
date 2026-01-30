@@ -10,6 +10,7 @@ namespace GameLoop
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
+        public static int NextSceneIndex { get; set; } = 1;
 
         public event System.Action OnLevelCompleted
         {
@@ -83,7 +84,8 @@ namespace GameLoop
         public void KillPlayer()
         {
             Debug.Log("Player has been killed.");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.NextSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene("Reload");
         }
 
         public void PlayerReachedGoal()
