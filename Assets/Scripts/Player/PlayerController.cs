@@ -1,3 +1,4 @@
+using GameLoop;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,7 @@ namespace Player
     {
         [SerializeField]
         private LayerMask m_groundMask;
+
         private Rigidbody2D m_rigidbody = null;
         private BoxCollider2D m_collider = null;
         private Vector2 m_movementInput = Vector2.zero;
@@ -31,6 +33,8 @@ namespace Player
         {
             m_playerState.OnPlayerTypeChanged -= UpdateRigibody;
             m_playerState.OnPlayerTypeChanged -= UpdateColliderShape;
+
+            UnsubscribeFromInput();
         }
 
         private void SubscribeToInput()
@@ -38,6 +42,33 @@ namespace Player
             InputSystem.actions.FindAction("Move").started += OnPlayerMoved;
             InputSystem.actions.FindAction("Move").canceled += OnPlayerMoved;
             InputSystem.actions.FindAction("Jump").performed += OnPlayerJump;
+
+            InputSystem.actions.FindAction("UseHeavyMask").performed += (ctx) => ChangeMask(EPlayerType.HEAVY);
+            InputSystem.actions.FindAction("UseNormalMask").performed += (ctx) => ChangeMask(EPlayerType.NORMAL);
+            InputSystem.actions.FindAction("UseWideMask").performed += (ctx) => ChangeMask(EPlayerType.WIDE);
+            InputSystem.actions.FindAction("UseLiquidMask").performed += (ctx) => ChangeMask(EPlayerType.LIQUID);
+            InputSystem.actions.FindAction("UseNarrowMask").performed += (ctx) => ChangeMask(EPlayerType.NARROW);
+        }
+
+        private void UnsubscribeFromInput()
+        {
+            InputSystem.actions.FindAction("Move").started -= OnPlayerMoved;
+            InputSystem.actions.FindAction("Move").canceled -= OnPlayerMoved;
+            InputSystem.actions.FindAction("Jump").performed -= OnPlayerJump;
+
+            InputSystem.actions.FindAction("UseHeavyMask").performed -= (ctx) => ChangeMask(EPlayerType.HEAVY);
+            InputSystem.actions.FindAction("UseNormalMask").performed -= (ctx) => ChangeMask(EPlayerType.NORMAL);
+            InputSystem.actions.FindAction("UseWideMask").performed -= (ctx) => ChangeMask(EPlayerType.WIDE);
+            InputSystem.actions.FindAction("UseLiquidMask").performed -= (ctx) => ChangeMask(EPlayerType.LIQUID);
+            InputSystem.actions.FindAction("UseNarrowMask").performed -= (ctx) => ChangeMask(EPlayerType.NARROW);
+        }
+
+        private void ChangeMask(EPlayerType _type)
+        {
+            if (GameManager.Instance.CanUseMask(_type))
+            {
+                m_playerState.CurrentType = _type;
+            }
         }
 
         private void OnPlayerJump(InputAction.CallbackContext _context)
@@ -71,27 +102,6 @@ namespace Player
 
         private void Update()
         {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
-            {
-                m_playerState.CurrentType = EPlayerType.NORMAL;
-            }
-            else if (Keyboard.current.digit2Key.wasPressedThisFrame)
-            {
-                m_playerState.CurrentType = EPlayerType.HEAVY;
-            }
-            else if (Keyboard.current.digit3Key.wasPressedThisFrame)
-            {
-                m_playerState.CurrentType = EPlayerType.LIQUID;
-            }
-            else if (Keyboard.current.digit4Key.wasPressedThisFrame)
-            {
-                m_playerState.CurrentType = EPlayerType.WIDE;
-            }
-            else if (Keyboard.current.digit5Key.wasPressedThisFrame)
-            {
-                m_playerState.CurrentType = EPlayerType.NARROW;
-            }
-
             bool isGrounded = IsGrounded();
             if (m_wasJumpPressed)
             {
@@ -104,13 +114,6 @@ namespace Player
             Vector2 velocity = m_rigidbody.linearVelocity;
             velocity.x = m_movementInput.x * (isGrounded ? m_playerState.CurrentProperties.MovementSpeed : m_playerState.CurrentProperties.AirSpeed);
             m_rigidbody.linearVelocity = velocity;
-        }
-
-
-        private void OnGUI()
-        {
-            GUILayout.Label($"Current Player Type: {m_playerState.CurrentType}");
-            GUILayout.Label($"Current MovementSpeed: {m_movementInput}");
         }
     }
 }

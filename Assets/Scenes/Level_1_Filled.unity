@@ -536,6 +536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28913ba79927e2446ae32dd54bb11178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLoop.GameManager
+  m_maskUsages:
+  - {fileID: 11400000, guid: 0219bb375bae4e249bbdd0fa5a784761, type: 2}
 --- !u!4 &413433854
 Transform:
   m_ObjectHideFlags: 0
