@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Narrow
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerProperties
   m_movementSpeed: 0
+  m_airSpeed: 2
   m_jumpForce: 20
   m_weight: 2
   m_height: 1

@@ -92,16 +92,17 @@ namespace Player
                 m_playerState.CurrentType = EPlayerType.NARROW;
             }
 
+            bool isGrounded = IsGrounded();
             if (m_wasJumpPressed)
             {
-                if (IsGrounded())
+                if (isGrounded)
                 {
                     m_rigidbody.AddForce(Vector2.up * m_playerState.CurrentProperties.JumpForce, ForceMode2D.Impulse);
                 }
                 m_wasJumpPressed = false;
             }
             Vector2 velocity = m_rigidbody.linearVelocity;
-            velocity.x = m_movementInput.x * m_playerState.CurrentProperties.MovementSpeed;
+            velocity.x = m_movementInput.x * (isGrounded ? m_playerState.CurrentProperties.MovementSpeed : m_playerState.CurrentProperties.AirSpeed);
             m_rigidbody.linearVelocity = velocity;
         }
 
