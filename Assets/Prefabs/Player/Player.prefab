@@ -126,6 +126,9 @@ MonoBehaviour:
   m_groundMask:
     serializedVersion: 2
     m_Bits: 64
+  m_typesWithChargeableJump: 03000000
+  m_maxJumpChargeTime: 1
+  m_typesWithShake: 02000000
 --- !u!114 &4395969042271780822
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,29 +12,8 @@ namespace Effects
         private AnimationCurve m_frequencyCurve = null;
         [SerializeField]
         private float m_shakeDuration = 1.0f;
-        [SerializeField]
-        private List<EPlayerType> m_enabledTypes = new List<EPlayerType>();
 
         private Coroutine m_shakeCoroutine = null;
-        private PlayerState m_playerState = null;
-
-        private void Awake()
-        {
-            m_playerState = FindFirstObjectByType<PlayerState>();
-        }
-
-        private void Start()
-        {
-            InputSystem.actions.FindAction("Jump").performed += OnPlayerJump;
-        }
-
-        private void OnPlayerJump(InputAction.CallbackContext _context)
-        {
-            if (m_enabledTypes.Contains(m_playerState.CurrentType) && Time.timeScale > 0.0f)
-            {
-                Shake();
-            }
-        }
 
         public void Shake()
         {

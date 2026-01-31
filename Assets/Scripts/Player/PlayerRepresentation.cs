@@ -32,6 +32,7 @@ namespace Player
         private Rigidbody2D m_playerRigidbody = null;
         private Dictionary<EPlayerType, Sprite> m_spritePerType = new Dictionary<EPlayerType, Sprite>();
         private ParticleSystem m_smokeSystem = null;
+        private PlayerController m_playerController = null;
 
         private void Awake()
         {
@@ -39,13 +40,29 @@ namespace Player
             m_playerState = GetComponentInParent<PlayerState>();
             m_playerRigidbody = GetComponentInParent<Rigidbody2D>();
             m_smokeSystem = GetComponentInChildren<ParticleSystem>();
+            m_playerController = GetComponentInParent<PlayerController>();
 
             m_playerState.OnPlayerTypeChanged += UpdateRepresentation;
+            m_playerController.OnJumpChargeChanged += AdjustScaleDependingOnCharge;
 
             foreach (PlayerSprite playerSprite in m_sprites)
             {
                 m_spritePerType[playerSprite.PlayerType] = playerSprite.Sprite;
             }
+        }
+
+        private void OnDestroy()
+        {
+            m_playerState.OnPlayerTypeChanged -= UpdateRepresentation;
+            m_playerController.OnJumpChargeChanged -= AdjustScaleDependingOnCharge;
+        }
+
+        private void AdjustScaleDependingOnCharge(float _charge)
+        {
+            Vector3 scale = transform.localScale;
+            scale.y = Mathf.Lerp(1.0f, 0.5f, _charge);
+            transform.localScale = scale;
+            transform.localPosition = new Vector3(transform.localPosition.x, 0.5f * scale.y, transform.localPosition.z);
         }
 
         private void Update()
