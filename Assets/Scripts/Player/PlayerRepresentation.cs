@@ -22,6 +22,10 @@ namespace Player
         private List<PlayerSprite> m_sprites = null;
         [SerializeField]
         private Sprite m_fallback = null;
+        [SerializeField]
+        private List<EPlayerType> m_typesWithTrail = new List<EPlayerType>();
+        [SerializeField]
+        private TrailRenderer m_trailRenderer = null;
 
         private SpriteRenderer m_spriteRenderer = null;
         private PlayerState m_playerState = null;
@@ -57,6 +61,14 @@ namespace Player
             if (_previous != _current)
             {
                 m_smokeSystem.Play();
+            }
+            if (m_typesWithTrail.Contains(_current))
+            {
+                m_trailRenderer.gameObject.SetActive(true);
+            }
+            else
+            {
+                m_trailRenderer.gameObject.SetActive(false);
             }
             PlayerProperties properties = m_playerState.CurrentProperties;
             m_spriteRenderer.transform.position = m_playerState.transform.position + new Vector3(0f, properties.Height / 2f, 0f);
