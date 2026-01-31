@@ -11,6 +11,17 @@ namespace Environment
         private List<EPlayerType> m_triggerTypes = new List<EPlayerType>();
         [SerializeField]
         private List<AControllable> m_controlledObjects = new List<AControllable>();
+        [SerializeField]
+        private Transform m_topPart = null;
+        [SerializeField]
+        private Transform m_activatedState = null;
+
+        private Vector2 m_initialPosition = Vector2.zero;
+
+        private void Awake()
+        {
+            m_initialPosition = m_topPart.position;
+        }
 
         private void AdjustPlateState(EPlayerType _previous, EPlayerType _current)
         {
@@ -26,22 +37,35 @@ namespace Environment
 
             if (m_triggerTypes.Contains(_current))
             {
-                foreach (AControllable controllable in m_controlledObjects)
-                {
-                    controllable.Activate();
-                }
+                Activate();
             }
             else
             {
-                foreach (AControllable controllable in m_controlledObjects)
-                {
-                    controllable.Deactivate();
-                }
+                Deactivate();
             }
+        }
+
+        private void Activate()
+        {
+            foreach (AControllable controllable in m_controlledObjects)
+            {
+                controllable.Activate();
+            }
+            m_topPart.position = m_activatedState.position;
+        }
+
+        private void Deactivate()
+        {
+            foreach (AControllable controllable in m_controlledObjects)
+            {
+                controllable.Deactivate();
+            }
+            m_topPart.position = m_initialPosition;
         }
 
         private void OnTriggerEnter2D(Collider2D _collision)
         {
+            Debug.Log("Pressure Plate Triggered by " + _collision.name);
             PlayerState playerState = _collision.GetComponent<PlayerState>();
             if (playerState == null)
             {
@@ -53,10 +77,7 @@ namespace Environment
                 return;
             }
 
-            foreach (AControllable controllable in m_controlledObjects)
-            {
-                controllable.Activate();
-            }
+            Activate();
         }
 
         private void OnTriggerExit2D(Collider2D _collision)
@@ -72,10 +93,7 @@ namespace Environment
                 return;
             }
 
-            foreach (AControllable controllable in m_controlledObjects)
-            {
-                controllable.Deactivate();
-            }
+            Deactivate();
         }
     }
 }

@@ -1,5 +1,6 @@
 using GameLoop;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace UI
@@ -8,6 +9,31 @@ namespace UI
     {
         [SerializeField]
         private Transform m_levelCompletedPanel = null;
+        [SerializeField]
+        private Transform m_pausePanel = null;
+
+        private void Awake()
+        {
+            InputSystem.actions.FindAction("Pause").performed += OnPausePressed;
+        }
+
+        private void OnDestroy()
+        {
+            InputSystem.actions.FindAction("Pause").performed -= OnPausePressed;
+        }
+
+        private void OnPausePressed(InputAction.CallbackContext _context)
+        {
+            if (m_pausePanel.gameObject.activeSelf)
+            {
+                ContinueGame();
+            }
+            else
+            {
+                m_pausePanel.gameObject.SetActive(true);
+                GameManager.Instance.Pause();
+            }
+        }
 
         private void Start()
         {
@@ -28,6 +54,22 @@ namespace UI
             {
                 SceneManager.LoadScene(nextIndex);
             }
+        }
+
+        public void ContinueGame()
+        {
+            m_pausePanel.gameObject.SetActive(false);
+            GameManager.Instance.Unpause();
+        }
+
+        public void RestartGame()
+        {
+            GameManager.Instance.RestartLevel();
+        }
+
+        public void BackToMenu()
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 }

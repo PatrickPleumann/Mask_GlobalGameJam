@@ -27,8 +27,6 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI m_levelName = null;
         [SerializeField]
-        private Image m_border = null;
-        [SerializeField]
         private Button m_button = null;
 
         private event System.Action<LevelSelectionTile> m_onClick;
