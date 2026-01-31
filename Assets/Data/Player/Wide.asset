@@ -16,5 +16,5 @@ MonoBehaviour:
   m_airSpeed: 5
   m_jumpForce: 20
   m_weight: 5
-  m_height: 0.5
-  m_width: 2
+  m_height: 0.4
+  m_width: 1.33
