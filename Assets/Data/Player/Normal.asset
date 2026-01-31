@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Normal
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerProperties
   m_movementSpeed: 5
-  m_airSpeed: 0
+  m_airSpeed: 0.5
   m_jumpForce: 20
   m_weight: 5
   m_height: 1.5

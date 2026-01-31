@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8640723434365445568}
   m_Layer: 0
-  m_Name: HoleInGround 1
+  m_Name: HoleInGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
