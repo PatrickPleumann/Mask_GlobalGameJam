@@ -20,7 +20,6 @@ namespace Environment
 
         public override void Deactivate()
         {
-            this.gameObject.SetActive(m_initialVisibility);
         }
     }
 }
