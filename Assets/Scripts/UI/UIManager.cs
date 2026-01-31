@@ -54,6 +54,10 @@ namespace UI
             {
                 SceneManager.LoadScene(nextIndex);
             }
+            else
+            {
+                SceneManager.LoadScene("Menu");
+            }
         }
 
         public void ContinueGame()

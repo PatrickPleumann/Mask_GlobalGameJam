@@ -784,7 +784,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1499947937028232950}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2376967544237647306}
+        m_TargetAssemblyTypeName: UI.UIManager, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3500265803871213665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1463,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5371928425607362186, guid: 1a87d1215944fd945b173f357b1928f6, type: 3}
     - target: {fileID: 8583048738839398180, guid: fdb2983034986034880021ced252a7ba, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8583048738839398180, guid: fdb2983034986034880021ced252a7ba, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
@@ -1568,6 +1584,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 655793742704774097, guid: 0ab63b88122c67d4991801ad916a89fd, type: 3}
+    - target: {fileID: 8583048738839398180, guid: fdb2983034986034880021ced252a7ba, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9223241402905708111, guid: fdb2983034986034880021ced252a7ba, type: 3}
       propertyPath: m_maskSprite
       value: 
@@ -1686,6 +1706,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7012291990010905891, guid: 6d94ab7b13c819643adb3fd8f0795d39, type: 3}
+    - target: {fileID: 8583048738839398180, guid: fdb2983034986034880021ced252a7ba, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9223241402905708111, guid: fdb2983034986034880021ced252a7ba, type: 3}
       propertyPath: m_maskSprite
       value: 
@@ -1804,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -271997027490564552, guid: c1b93f6e3f9e8b24db40b40b7b2cf732, type: 3}
+    - target: {fileID: 8583048738839398180, guid: fdb2983034986034880021ced252a7ba, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9223241402905708111, guid: fdb2983034986034880021ced252a7ba, type: 3}
       propertyPath: m_maskSprite
       value: 
@@ -1922,6 +1950,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 417670001250293803, guid: 011419954d390fb4f8b6d349081673ce, type: 3}
+    - target: {fileID: 8583048738839398180, guid: fdb2983034986034880021ced252a7ba, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9223241402905708111, guid: fdb2983034986034880021ced252a7ba, type: 3}
       propertyPath: m_maskSprite
       value: 
