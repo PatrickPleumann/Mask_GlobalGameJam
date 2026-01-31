@@ -228,8 +228,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.16827083, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: -7300701751416192960, guid: e88cba124bf101f49829b7abd9f99bef, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -251,6 +251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04c879f849b6b748805b6c936b906c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerRepresentation
+  m_sprites:
+  - m_sprite: {fileID: -7300701751416192960, guid: e88cba124bf101f49829b7abd9f99bef, type: 3}
+    m_playerType: 0
+  - m_sprite: {fileID: -6836340745073355633, guid: 376645853a81f054686a536d4c783a48, type: 3}
+    m_playerType: 1
+  - m_sprite: {fileID: -429778797641908132, guid: 4c13ca70c37881b4192a1f441e7c78dd, type: 3}
+    m_playerType: 4
+  m_fallback: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
 --- !u!1 &7332287434156822498
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Effects.LevelTransition
   m_maxSize: 40
-  m_minSize: 0
+  m_minSize: 1
   m_transitionTime: 2
   m_blackout: {fileID: 0}
