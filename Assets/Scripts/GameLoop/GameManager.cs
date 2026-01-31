@@ -82,6 +82,7 @@ namespace GameLoop
 
         private void Start()
         {
+            Time.timeScale = 1.0f;
             LevelTransition.Instance.FadeIn();
             m_startingPoint.ResetPlayer();
             ResetMaskUsage();
@@ -101,7 +102,7 @@ namespace GameLoop
             RestartLevel();
         }
 
-        private void RestartLevel()
+        public void RestartLevel()
         {
             GameManager.NextSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("Reload");
@@ -138,6 +139,16 @@ namespace GameLoop
         {
             LevelTransition.Instance.OnTransitionCompleted += ProceedAfterFade;
             LevelTransition.Instance.FadeOut();
+        }
+
+        public void Pause()
+        {
+            Time.timeScale = 0.0f;
+        }
+
+        public void Unpause()
+        {
+            Time.timeScale = 1.0f;
         }
 
         private void ProceedAfterFade()

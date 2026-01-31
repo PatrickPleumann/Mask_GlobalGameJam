@@ -8,7 +8,7 @@ namespace GameLoop
     {
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
             SceneManager.LoadScene(GameManager.NextSceneIndex);
         }
     }
