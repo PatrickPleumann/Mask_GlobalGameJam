@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c4c0454ad257637429ab5c410c9bfb31
+guid: c04dec4692cf72b408fea72b5127aeb6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4547247211539960300
-    second: BreakScreenBackground_0
+      213: 7789780562200693584
+    second: Cuprumi_schwer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BreakScreenBackground_0
+      name: Cuprumi_schwer_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1951
-        height: 1417
+        x: 56
+        y: 19
+        width: 906
+        height: 737
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41e6642e0cee4e0c0800000000000000
-      internalID: -4547247211539960300
+      spriteID: 05b0738362cda1c60800000000000000
+      internalID: 7789780562200693584
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BreakScreenBackground_0: -4547247211539960300
+      Cuprumi_schwer_0: 7789780562200693584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
