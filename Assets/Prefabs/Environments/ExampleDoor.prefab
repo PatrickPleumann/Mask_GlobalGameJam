@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4087159254569670785}
   - component: {fileID: 2959887972740564857}
   - component: {fileID: 5127691088980023577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8170111821497294064}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OpenPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5113782732833178154}
   - component: {fileID: -3721616754033582027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExampleDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -135,7 +135,10 @@ namespace Player
 
         private bool IsGrounded()
         {
-            RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + Vector2.up * 0.05f, Vector2.down, 0.1f, m_groundMask);
+            RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position + Vector2.up * 0.1f,
+                new Vector2(m_playerState.CurrentProperties.Width * 1.1f, m_playerState.CurrentProperties.Height),
+                0, Vector2.down, 0.2f, m_groundMask);
+
             return hit.collider != null;
         }
 

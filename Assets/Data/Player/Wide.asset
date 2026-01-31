@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4e68c90710452449f8332cffd169db, type: 3}
   m_Name: Wide
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerProperties
-  m_movementSpeed: 5
+  m_movementSpeed: 3
   m_airSpeed: 5
-  m_jumpForce: 20
+  m_jumpForce: 10
   m_weight: 5
   m_height: 0.4
   m_width: 1.33

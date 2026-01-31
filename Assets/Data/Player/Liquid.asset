@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Liquid
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerProperties
   m_movementSpeed: 5
-  m_airSpeed: 5
+  m_airSpeed: 0
   m_jumpForce: 0
   m_weight: 5
   m_height: 0.33
