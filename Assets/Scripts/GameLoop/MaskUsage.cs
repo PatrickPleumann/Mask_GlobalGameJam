@@ -9,6 +9,7 @@ namespace GameLoop
     {
         public EPlayerType PlayerType => m_playerType;
         public int MaskCount => m_maskCount;
+
         [SerializeField]
         private EPlayerType m_playerType;
         [SerializeField]
@@ -20,10 +21,13 @@ namespace GameLoop
     {
         public string LevelName => m_levelName;
         public List<MaskAvailability> MaskAvailabilityList => m_maskAvailability;
+        public EPlayerType InitialType => m_initialType;
 
         [SerializeField]
         private string m_levelName;
         [SerializeField]
         private List<MaskAvailability> m_maskAvailability;
+        [SerializeField]
+        private EPlayerType m_initialType = EPlayerType.NORMAL;
     }
 }

@@ -54,7 +54,10 @@ namespace Player
 
         private void UpdateRepresentation(EPlayerType _previous, EPlayerType _current)
         {
-            m_smokeSystem.Play();
+            if (_previous != _current)
+            {
+                m_smokeSystem.Play();
+            }
             PlayerProperties properties = m_playerState.CurrentProperties;
             m_spriteRenderer.transform.position = m_playerState.transform.position + new Vector3(0f, properties.Height / 2f, 0f);
             if (m_spritePerType.ContainsKey(_current))

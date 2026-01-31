@@ -1,3 +1,4 @@
+using GameLoop;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -69,6 +70,7 @@ namespace Player
 
         private void Start()
         {
+            m_currentType = GameManager.Instance.CurrentMaskUsage.InitialType;
             m_onPlayerTypeChanged?.Invoke(m_currentType, m_currentType);
         }
     }

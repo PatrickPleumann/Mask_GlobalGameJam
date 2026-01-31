@@ -50,6 +50,14 @@ namespace GameLoop
             }
         }
 
+        public MaskUsage CurrentMaskUsage
+        {
+            get
+            {
+                return m_maskUsagePerLevel[SceneManager.GetActiveScene().name];
+            }
+        }
+
         [SerializeField]
         private List<MaskUsage> m_maskUsages;
 

@@ -24,3 +24,4 @@ MonoBehaviour:
     m_maskCount: 1
   - m_playerType: 0
     m_maskCount: 1
+  m_initialType: 3
