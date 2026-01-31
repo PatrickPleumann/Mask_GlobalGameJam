@@ -31,14 +31,14 @@ namespace UI
 
         private IEnumerator StartGameAsync()
         {
-            yield return new WaitForSeconds(m_transitionDelay);
+            yield return new WaitForSecondsRealtime(m_transitionDelay);
             int index = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(index + 1);
         }
 
         private IEnumerator QuitGameAsync()
         {
-            yield return new WaitForSeconds(m_transitionDelay);
+            yield return new WaitForSecondsRealtime(m_transitionDelay);
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
