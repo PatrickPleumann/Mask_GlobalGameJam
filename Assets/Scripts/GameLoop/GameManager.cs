@@ -1,3 +1,4 @@
+using Effects;
 using Player;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,11 +25,24 @@ namespace GameLoop
                 m_onLevelCompleted -= value;
             }
         }
+        public event System.Action OnPlayerDied
+        {
+            add
+            {
+                m_onPlayerDied -= value;
+                m_onPlayerDied += value;
+            }
+            remove
+            {
+                m_onPlayerDied -= value;
+            }
+        }
 
         [SerializeField]
         private List<MaskUsage> m_maskUsages;
 
         private event System.Action m_onLevelCompleted;
+        private event System.Action m_onPlayerDied;
 
         private StartingPoint m_startingPoint = null;
         private Dictionary<string, MaskUsage> m_maskUsagePerLevel = null;
@@ -50,11 +64,12 @@ namespace GameLoop
                 m_maskUsagePerLevel[maskUsage.LevelName] = maskUsage;
             }
 
-            InputSystem.actions.FindAction("Restart").performed += (ctx) => KillPlayer();
+            InputSystem.actions.FindAction("Restart").performed += OnRestartLevel;
         }
 
         private void Start()
         {
+            LevelTransition.Instance.FadeIn();
             m_startingPoint.ResetPlayer();
             ResetMaskUsage();
         }
@@ -65,7 +80,18 @@ namespace GameLoop
             {
                 Instance = null;
             }
-            InputSystem.actions.FindAction("Restart").performed -= (ctx) => KillPlayer();
+            InputSystem.actions.FindAction("Restart").performed -= OnRestartLevel;
+        }
+
+        private void OnRestartLevel(InputAction.CallbackContext _context)
+        {
+            RestartLevel();
+        }
+
+        private void RestartLevel()
+        {
+            GameManager.NextSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene("Reload");
         }
 
         private void ResetMaskUsage()
@@ -83,13 +109,26 @@ namespace GameLoop
 
         public void KillPlayer()
         {
-            Debug.Log("Player has been killed.");
-            GameManager.NextSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene("Reload");
+            LevelTransition.Instance.OnTransitionCompleted += ResetAfterFade;
+            LevelTransition.Instance.FadeOut();
+            m_onPlayerDied?.Invoke();
+        }
+
+        private void ResetAfterFade()
+        {
+            LevelTransition.Instance.OnTransitionCompleted -= ResetAfterFade;
+            RestartLevel();
         }
 
         public void PlayerReachedGoal()
         {
+            LevelTransition.Instance.OnTransitionCompleted += ProceedAfterFade;
+            LevelTransition.Instance.FadeOut();
+        }
+
+        private void ProceedAfterFade()
+        {
+            LevelTransition.Instance.OnTransitionCompleted -= ProceedAfterFade;
             m_onLevelCompleted?.Invoke();
         }
 

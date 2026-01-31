@@ -29,6 +29,19 @@ namespace Player
             m_playerState.OnPlayerTypeChanged += UpdateColliderShape;
         }
 
+        private void Start()
+        {
+            GameManager.Instance.OnPlayerDied += DisableSelf;
+        }
+
+        private void DisableSelf()
+        {
+            GameManager.Instance.OnPlayerDied -= DisableSelf;
+            UnsubscribeFromInput();
+            m_movementInput = Vector2.zero;
+            m_rigidbody.linearVelocity = Vector2.zero;
+        }
+
         private void OnDestroy()
         {
             m_playerState.OnPlayerTypeChanged -= UpdateRigibody;
