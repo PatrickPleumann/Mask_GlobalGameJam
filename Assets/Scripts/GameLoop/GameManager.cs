@@ -175,14 +175,5 @@ namespace GameLoop
             }
             return false;
         }
-
-        private void OnGUI()
-        {
-            GUILayout.Label("Remaining Masks:");
-            foreach (var kv in m_remainingMasks)
-            {
-                GUILayout.Label($"{kv.Key}: {kv.Value}");
-            }
-        }
     }
 }
