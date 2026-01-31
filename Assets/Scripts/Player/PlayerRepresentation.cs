@@ -27,12 +27,14 @@ namespace Player
         private PlayerState m_playerState = null;
         private Rigidbody2D m_playerRigidbody = null;
         private Dictionary<EPlayerType, Sprite> m_spritePerType = new Dictionary<EPlayerType, Sprite>();
+        private ParticleSystem m_smokeSystem = null;
 
         private void Awake()
         {
             m_spriteRenderer = GetComponent<SpriteRenderer>();
             m_playerState = GetComponentInParent<PlayerState>();
             m_playerRigidbody = GetComponentInParent<Rigidbody2D>();
+            m_smokeSystem = GetComponentInChildren<ParticleSystem>();
 
             m_playerState.OnPlayerTypeChanged += UpdateRepresentation;
 
@@ -52,6 +54,7 @@ namespace Player
 
         private void UpdateRepresentation(EPlayerType _previous, EPlayerType _current)
         {
+            m_smokeSystem.Play();
             PlayerProperties properties = m_playerState.CurrentProperties;
             m_spriteRenderer.transform.position = m_playerState.transform.position + new Vector3(0f, properties.Height / 2f, 0f);
             if (m_spritePerType.ContainsKey(_current))
