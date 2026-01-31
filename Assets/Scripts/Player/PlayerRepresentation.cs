@@ -25,18 +25,28 @@ namespace Player
 
         private SpriteRenderer m_spriteRenderer = null;
         private PlayerState m_playerState = null;
+        private Rigidbody2D m_playerRigidbody = null;
         private Dictionary<EPlayerType, Sprite> m_spritePerType = new Dictionary<EPlayerType, Sprite>();
 
         private void Awake()
         {
             m_spriteRenderer = GetComponent<SpriteRenderer>();
             m_playerState = GetComponentInParent<PlayerState>();
+            m_playerRigidbody = GetComponentInParent<Rigidbody2D>();
 
             m_playerState.OnPlayerTypeChanged += UpdateRepresentation;
 
             foreach (PlayerSprite playerSprite in m_sprites)
             {
                 m_spritePerType[playerSprite.PlayerType] = playerSprite.Sprite;
+            }
+        }
+
+        private void Update()
+        {
+            if (Mathf.Abs(m_playerRigidbody.linearVelocity.x) > 0)
+            {
+                m_spriteRenderer.flipX = m_playerRigidbody.linearVelocity.x < 0f;
             }
         }
 
