@@ -2392,15 +2392,15 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1099fd659b7a0af45ba35a16180ad4f9, type: 3}
 --- !u!114 &2074253239 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8347174136306643073, guid: 1099fd659b7a0af45ba35a16180ad4f9, type: 3}
+  m_CorrespondingSourceObject: {fileID: -3721616754033582027, guid: 1099fd659b7a0af45ba35a16180ad4f9, type: 3}
   m_PrefabInstance: {fileID: 2074253238}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435af51849bf1364796df3e0ccec557b, type: 3}
+  m_Script: {fileID: 11500000, guid: 814ee2ec79cf7be4c8aaf6e560e09e64, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Environment.Door
+  m_EditorClassIdentifier: Assembly-CSharp::Environment.Gate
 --- !u!1 &2107545235
 GameObject:
   m_ObjectHideFlags: 0

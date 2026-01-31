@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5113782732833178154}
-  - component: {fileID: 8347174136306643073}
+  - component: {fileID: -3721616754033582027}
   m_Layer: 0
   m_Name: ExampleDoor
   m_TagString: Untagged
@@ -202,7 +202,7 @@ Transform:
   - {fileID: 8170111821497294064}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8347174136306643073
+--- !u!114 &-3721616754033582027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,9 +211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8324398060191430387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435af51849bf1364796df3e0ccec557b, type: 3}
+  m_Script: {fileID: 11500000, guid: 814ee2ec79cf7be4c8aaf6e560e09e64, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Environment.Door
-  m_closeDelay: 20000
-  m_openSpeed: 20
-  m_openPosition: {fileID: 8170111821497294064}
+  m_EditorClassIdentifier: Assembly-CSharp::Environment.Gate
+  m_initialVisibility: 1
