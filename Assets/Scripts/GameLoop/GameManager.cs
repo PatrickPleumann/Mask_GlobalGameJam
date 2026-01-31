@@ -37,12 +37,25 @@ namespace GameLoop
                 m_onPlayerDied -= value;
             }
         }
+        public event System.Action<EPlayerType, int> OnMaskUsageChanged
+        {
+            add
+            {
+                m_onMaskUsageChanged -= value;
+                m_onMaskUsageChanged += value;
+            }
+            remove
+            {
+                m_onMaskUsageChanged -= value;
+            }
+        }
 
         [SerializeField]
         private List<MaskUsage> m_maskUsages;
 
         private event System.Action m_onLevelCompleted;
         private event System.Action m_onPlayerDied;
+        private event System.Action<EPlayerType, int> m_onMaskUsageChanged;
 
         private StartingPoint m_startingPoint = null;
         private Dictionary<string, MaskUsage> m_maskUsagePerLevel = null;
@@ -103,6 +116,7 @@ namespace GameLoop
                 foreach (MaskAvailability availability in maskUsage.MaskAvailabilityList)
                 {
                     m_remainingMasks[availability.PlayerType] = availability.MaskCount;
+                    m_onMaskUsageChanged?.Invoke(availability.PlayerType, availability.MaskCount);
                 }
             }
         }
@@ -137,6 +151,7 @@ namespace GameLoop
             if (m_remainingMasks.TryGetValue(_requestedType, out int count) && count > 0)
             {
                 m_remainingMasks[_requestedType] = count - 1;
+                m_onMaskUsageChanged?.Invoke(_requestedType, m_remainingMasks[_requestedType]);
                 return true;
             }
             return false;
