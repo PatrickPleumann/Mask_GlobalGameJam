@@ -11,7 +11,7 @@ namespace GameLoop
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
-        public static int NextSceneIndex { get; set; } = 1;
+        public static int NextSceneIndex { get; set; } = 2;
 
         public event System.Action OnLevelCompleted
         {

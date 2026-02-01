@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace UI
@@ -15,6 +16,14 @@ namespace UI
         private void Awake()
         {
             Time.timeScale = 1.0f;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.f9Key.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("LevelEditor");
+            }
         }
 
         public void StartGame()
