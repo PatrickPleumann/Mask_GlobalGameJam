@@ -5208,6 +5208,7 @@ GameObject:
   - component: {fileID: 5488187804934452327}
   - component: {fileID: 7639625998353423858}
   - component: {fileID: 8878419447577765119}
+  - component: {fileID: 3644458376947062477}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -5313,6 +5314,30 @@ MonoBehaviour:
   m_fallback: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_typesWithTrail: 04000000
   m_trailRenderer: {fileID: 7228337542035350791}
+  m_animator: {fileID: 3644458376947062477}
+  m_typesWithWalkAnimation: 00000000
+--- !u!95 &3644458376947062477
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873905989665286509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e50c2eb36f5c41b4dba485ea71da136b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7332287434156822498
 GameObject:
   m_ObjectHideFlags: 0

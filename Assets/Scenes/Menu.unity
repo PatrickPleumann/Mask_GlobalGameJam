@@ -1120,6 +1120,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf10812059613ca4b97420132c2af8ff, type: 2}
   - {fileID: 11400000, guid: ddc9b27cb65a52e4cb1fa8d89265971d, type: 2}
   - {fileID: 11400000, guid: 5f1f6ca85f5219d46be2a462747cfc9b, type: 2}
+  - {fileID: 11400000, guid: 9e4d917b09cf00c419e541ef44c163a9, type: 2}
   m_tilePrefab: {fileID: 6771308912195378375, guid: ecfa7359b1a2b954a8ad93fda257e83f, type: 3}
   m_tileParent: {fileID: 930552551}
   m_playSelectedButton: {fileID: 878075237}
@@ -1361,7 +1362,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930552550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1370,7 +1371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.0501, y: 0.1562}
+  m_AnchoredPosition: {x: 151, y: -146}
   m_SizeDelta: {x: 1578.4163, y: 662.4356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930552552

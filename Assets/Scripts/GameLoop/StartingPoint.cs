@@ -11,6 +11,8 @@ namespace GameLoop
         private void Awake()
         {
             m_activePlayer = FindFirstObjectByType<PlayerState>();
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            renderer.enabled = false;
         }
 
         public PlayerState ResetPlayer()

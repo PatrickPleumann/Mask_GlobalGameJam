@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.LevelInfo
   m_levelName: Level 4
   m_sceneName: Level_4
-  m_levelImage: {fileID: 0}
+  m_levelImage: {fileID: 5296353372005848807, guid: 7bdccf98f944c594198cb5673f2c4995, type: 3}
