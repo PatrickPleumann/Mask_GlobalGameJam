@@ -76,7 +76,6 @@ namespace Effects
             }
 
             transform.localScale = new Vector3(_target, _target, _target);
-            m_blackout.gameObject.SetActive(false);
             m_onTransitionCompleted?.Invoke();
         }
     }

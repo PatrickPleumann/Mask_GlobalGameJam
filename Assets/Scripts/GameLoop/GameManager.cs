@@ -60,6 +60,8 @@ namespace GameLoop
 
         [SerializeField]
         private List<MaskUsage> m_maskUsages;
+        [SerializeField]
+        private bool m_startOnAwake = true;
 
         private event System.Action m_onLevelCompleted;
         private event System.Action m_onPlayerDied;
@@ -90,8 +92,20 @@ namespace GameLoop
 
         private void Start()
         {
+            if (m_startOnAwake)
+            {
+                StartGame();
+            }
+        }
+
+        public void StartGame()
+        {
             Time.timeScale = 1.0f;
             LevelTransition.Instance.FadeIn();
+            if (m_startingPoint == null)
+            {
+                m_startingPoint = FindFirstObjectByType<StartingPoint>();
+            }
             m_startingPoint.ResetPlayer();
             ResetMaskUsage();
         }

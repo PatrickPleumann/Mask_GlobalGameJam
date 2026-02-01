@@ -140,8 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Environment.PressurePlate
   m_triggerTypes: 02000000
-  m_controlledObjects:
-  - {fileID: 0}
+  m_controlledObjects: []
   m_topPart: {fileID: 6576453955622652689}
   m_activatedState: {fileID: 918514674091996465}
 --- !u!61 &5123470137012298078
