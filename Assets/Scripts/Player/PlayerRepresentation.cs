@@ -26,6 +26,10 @@ namespace Player
         private List<EPlayerType> m_typesWithTrail = new List<EPlayerType>();
         [SerializeField]
         private TrailRenderer m_trailRenderer = null;
+        [SerializeField]
+        private Animator m_animator = null;
+        [SerializeField]
+        private List<EPlayerType> m_typesWithWalkAnimation = new List<EPlayerType>();
 
         private SpriteRenderer m_spriteRenderer = null;
         private PlayerState m_playerState = null;
@@ -67,9 +71,20 @@ namespace Player
 
         private void Update()
         {
-            if (Mathf.Abs(m_playerRigidbody.linearVelocity.x) > 0)
+            if (Mathf.Abs(m_playerRigidbody.linearVelocity.x) > 0f)
             {
                 m_spriteRenderer.flipX = m_playerRigidbody.linearVelocity.x < 0f;
+                if (m_typesWithWalkAnimation.Contains(m_playerState.CurrentType))
+                {
+                    m_animator.SetBool(m_playerState.CurrentType.ToString() + "Walk", true);
+                }
+            }
+            else
+            {
+                if (m_typesWithWalkAnimation.Contains(m_playerState.CurrentType))
+                {
+                    m_animator.SetBool(m_playerState.CurrentType.ToString() + "Walk", false);
+                }
             }
         }
 
@@ -86,6 +101,15 @@ namespace Player
             else
             {
                 m_trailRenderer.gameObject.SetActive(false);
+            }
+            if (m_typesWithWalkAnimation.Contains(_current))
+            {
+                m_animator.enabled = true;
+                m_animator.SetTrigger(_current.ToString() + "Start");
+            }
+            else
+            {
+                m_animator.enabled = false;
             }
             PlayerProperties properties = m_playerState.CurrentProperties;
             m_spriteRenderer.transform.position = m_playerState.transform.position + new Vector3(0f, properties.Height / 2f, 0f);
