@@ -28,7 +28,7 @@ namespace Effects
         {
             float elapsedTime = 0.0f;
             Vector3 initialPosition = transform.localPosition;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.6f);
             while (elapsedTime < m_shakeDuration)
             {
                 elapsedTime += Time.deltaTime;
