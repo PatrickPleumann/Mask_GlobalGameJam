@@ -43,6 +43,20 @@ namespace UI
             }
         }
 
+        public void ShowCredits()
+        {
+            if (m_activeCoroutine == null)
+            {
+                m_activeCoroutine = StartCoroutine(ShowCreditAsync());
+            }
+        }
+
+        private IEnumerator ShowCreditAsync()
+        {
+            yield return new WaitForSecondsRealtime(m_transitionDelay);
+            SceneManager.LoadScene("Credits");
+        }
+
         private IEnumerator StartGameAsync()
         {
             yield return new WaitForSecondsRealtime(m_transitionDelay);
