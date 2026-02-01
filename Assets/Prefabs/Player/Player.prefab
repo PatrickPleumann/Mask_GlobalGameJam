@@ -5311,6 +5311,8 @@ MonoBehaviour:
     m_playerType: 4
   - m_sprite: {fileID: 7789780562200693584, guid: c04dec4692cf72b408fea72b5127aeb6, type: 3}
     m_playerType: 2
+  - m_sprite: {fileID: 6698935156573903219, guid: 4c4968597b177bf448b8931db4e39ab5, type: 3}
+    m_playerType: 3
   m_fallback: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_typesWithTrail: 04000000
   m_trailRenderer: {fileID: 7228337542035350791}
