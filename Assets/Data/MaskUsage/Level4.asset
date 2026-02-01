@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa04b5b5c6cc1204b953b1abe0962319, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: Assembly-CSharp::GameLoop.MaskUsage
+  m_levelName: Level_4
+  m_maskAvailability:
+  - m_playerType: 1
+    m_maskCount: 1
+  - m_playerType: 2
+    m_maskCount: 1
+  - m_playerType: 3
+    m_maskCount: 1
+  - m_playerType: 4
+    m_maskCount: 1
+  - m_playerType: 0
+    m_maskCount: 1
+  m_initialType: 4

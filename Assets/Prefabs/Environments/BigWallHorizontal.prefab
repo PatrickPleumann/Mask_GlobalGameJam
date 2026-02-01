@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8147166276655947033}
   - component: {fileID: 462898398818208605}
   - component: {fileID: 5848336793829494333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallVertical (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6287142187028066029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BigWallHorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 499448116696886924}
   - component: {fileID: 2513949817995299017}
   - component: {fileID: 5292995162717993058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallVertical (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 2252096666562745359}
   - component: {fileID: 7007577770028861890}
   - component: {fileID: 3550910306652230679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallVertical (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

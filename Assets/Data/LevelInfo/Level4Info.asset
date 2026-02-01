@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4e68c90710452449f8332cffd169db, type: 3}
-  m_Name: Heavy
-  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerProperties
-  m_movementSpeed: 1
-  m_airSpeed: 0.5
-  m_jumpForce: 30
-  m_weight: 10
-  m_height: 1.5
-  m_width: 2
+  m_Script: {fileID: 11500000, guid: 34ba57255c485b243bf48ef6064d6ae6, type: 3}
+  m_Name: Level4Info
+  m_EditorClassIdentifier: Assembly-CSharp::UI.LevelInfo
+  m_levelName: Level 4
+  m_sceneName: Level_4
+  m_levelImage: {fileID: 0}

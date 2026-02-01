@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerProperties
   m_movementSpeed: 1
   m_airSpeed: 0
-  m_jumpForce: 20
+  m_jumpForce: 23
   m_weight: 2
   m_height: 1
   m_width: 0.5
