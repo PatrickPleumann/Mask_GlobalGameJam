@@ -12,6 +12,11 @@ namespace UI
 
         private Coroutine m_activeCoroutine = null;
 
+        private void Awake()
+        {
+            Time.timeScale = 1.0f;
+        }
+
         public void StartGame()
         {
             if (m_activeCoroutine == null)
